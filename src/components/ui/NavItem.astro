@@ -1,0 +1,7 @@
+---
+const { label, href, active } = Astro.props;
+---
+
+<li>
+  <a class={`text-xl font-medium hover:text-light-blue hover:-translate-y-1 hover:scale-110 transition-all inline-block ${active ? 'gradient-text border-b-2 ' : ''}`} href={href}>{label}</a>
+</li>
