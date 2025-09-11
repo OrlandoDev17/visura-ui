@@ -15,12 +15,14 @@ import Right from "@/icons/Right.astro";
   <div
     class="bg-dark-blue/95 z-10 absolute inset-0 flex flex-col gap-8 items-center justify-center"
   >
-    <Tag
-      icon={Zap}
-      label="Componentes técnicos modernos"
-      className="shadow-complete border-light-blue/40 bg-light-blue/10"
-    />
-    <h1 class="gradient-text text-7xl text-center font-bold">
+    <span data-reveal="top">
+      <Tag
+        icon={Zap}
+        label="Componentes técnicos modernos"
+        className="shadow-complete border-light-blue/40 bg-light-blue/10"
+      />
+    </span>
+    <h1 data-reveal="left" class="gradient-text text-7xl text-center font-bold">
       VisuraUI <br /><span class="text-white">Para Webs Modernas</span>
     </h1>
     <p class="text-2xl text-gray-400 font-medium max-w-4xl text-center">
@@ -39,8 +41,14 @@ import Right from "@/icons/Right.astro";
       />
       <Button href="#" label="Documentación Técnica" type="outlined" />
     </div>
-    <div class="flex items-center gap-6 mt-8">
-      {TAGS.map((tag) => <Tag {...tag} />)}
+    <div data-reveal-stagger class="flex items-center gap-6 mt-8">
+      {
+        TAGS.map((tag) => (
+          <div data-reveal-child="top">
+            <Tag {...tag} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

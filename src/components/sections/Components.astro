@@ -1,0 +1,37 @@
+---
+import { COMPONENTS } from "@/lib/constants";
+import ComponentCard from "../ui/ComponentCard.astro";
+import Button from "../ui/Button.astro";
+import Right from "@/icons/Right.astro";
+---
+
+<section
+  class="flex flex-col items-center gap-16 mb-12 max-w-7xl w-full mx-auto"
+>
+  <div data-reveal="left" class="flex flex-col gap-4 items-center">
+    <h2 class="text-5xl gradient-text font-bold tracking-wide text-center">
+      Biblioteca completa <br /><span class="text-white">de componentes</span>
+    </h2>
+    <p class="text-lg text-gray-400 font-medium max-w-3xl text-center">
+      Más de 50 componentes técnicos organizados por categorías. Cada uno con
+      múltiples variantes, documentación completa y ejemplos prácticos.
+    </p>
+  </div>
+  <div data-reveal-stagger class="grid grid-cols-3 gap-8 w-full">
+    {COMPONENTS.map((component) => <ComponentCard {...component} />)}
+  </div>
+  <div class="flex items-center gap-6">
+    <Button
+      className="shadow-complete"
+      href="/components"
+      label="Ver todos los componentes"
+      type="filled"
+    />
+    <Button
+      href="/docs"
+      label="Explorar Documentación"
+      type="outlined"
+      icon={Right}
+    />
+  </div>
+</section>

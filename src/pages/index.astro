@@ -1,8 +1,10 @@
 ---
+import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/sections/Header.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Why from "@/components/sections/Why.astro";
-import Layout from "@/layouts/Layout.astro";
+import Components from "@/components/sections/Components.astro";
+import Compatibility from "@/components/sections/Compatibility.astro";
 ---
 
 <Layout>
@@ -10,5 +12,13 @@ import Layout from "@/layouts/Layout.astro";
     <Header />
     <Hero />
     <Why />
+    <Components />
+    <Compatibility />
   </main>
 </Layout>
+
+<script>
+  import { setupScrollReveal } from "@/utils/scrollReveal";
+
+  setupScrollReveal();
+</script>

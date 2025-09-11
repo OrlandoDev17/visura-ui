@@ -5,7 +5,7 @@ import Check from "@/icons/Check.astro";
 ---
 
 <section class="flex flex-col items-center gap-16 mb-12 max-w-7xl mx-auto">
-  <div class="flex flex-col gap-4 items-center">
+  <div data-reveal="left" class="flex flex-col gap-4 items-center">
     <h2 class="text-5xl font-bold tracking-wide">
       ¿Por qué <br /><span class="gradient-text">Visura UI?</span>
     </h2>
@@ -14,18 +14,24 @@ import Check from "@/icons/Check.astro";
       técnicos, escalables y listos para proyectos modernos de cualquier tipo.
     </p>
   </div>
-  <div class="flex items-center gap-12">
-    {WHY_CARDS.map((card) => <Card {...card} />)}
+  <div data-reveal-stagger class="flex items-center gap-12">
+    {
+      WHY_CARDS.map((card) => (
+        <span data-reveal-child={card.reveal}>
+          <Card {...card} />
+        </span>
+      ))
+    }
   </div>
   <aside class="flex items-center w-full">
     <div class="flex flex-col gap-6 w-1/2">
       <h3 class="text-xl font-bold gradient-text">
         Todo lo que necesitas para tu próximo proyecto
       </h3>
-      <ul class="flex flex-col gap-4">
+      <ul data-reveal-stagger class="flex flex-col gap-4">
         {
           LIST.map((item) => (
-            <li class="flex items-center gap-3">
+            <li data-reveal-child="left" class="flex items-center gap-3">
               <Check class="size-6 text-light-blue" />
               <span class="text-gray-400 font-medium">{item}</span>
             </li>
@@ -33,10 +39,13 @@ import Check from "@/icons/Check.astro";
         }
       </ul>
     </div>
-    <div class="grid grid-cols-3 text-center gap-6 w-1/2">
+    <div data-reveal-stagger class="grid grid-cols-3 text-center gap-6 w-1/2">
       {
         INFO.map((item) => (
-          <article class="flex flex-col gap-2 bg-special p-10 rounded-xl border-1 border-white/10 hover:-translate-y-2 hover:border-white/40 transition-all">
+          <article
+            data-reveal-child={item.reveal}
+            class="flex flex-col gap-2 bg-special p-10 rounded-xl border-1 border-white/10 hover:-translate-y-2 hover:border-white/40 transition"
+          >
             <h3 class={`text-4xl font-bold ${item.color}`}>
               {item.prefix}
               {item.target}

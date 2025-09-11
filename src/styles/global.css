@@ -3,7 +3,7 @@
 @theme {
   --color-dark-blue: #0b0f19;
   --color-light-blue: #00bfff;
-  --color-accent: #aa6aff;
+  --color-accent: #654499;
   --color-special: #b068ff;
   --color-black-variant: #0b0e12;
   --color-special: #11161c;
@@ -13,8 +13,9 @@
   background: linear-gradient(
     to right,
     var(--color-light-blue),
-    var(--color-accent),
-    var(--color-special)
+    var(--color-blue-400),
+    var(--color-purple-400),
+    var(--color-accent)
   );
   -webkit-background-clip: text;
   color: transparent;
@@ -36,4 +37,31 @@
 .shadow-complete {
   box-shadow: 0 1px 30px 1px rgba(0, 191, 255, 0.3);
   animation: shadow-grow 1.5s infinite ease-in-out;
+}
+
+[data-reveal="top"],
+[data-reveal-child="top"] {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.6s ease-out;
+}
+
+[data-reveal="left"],
+[data-reveal-child="left"] {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.6s ease-out;
+}
+
+[data-reveal="right"],
+[data-reveal-child="right"] {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transform: translateX(0);
 }

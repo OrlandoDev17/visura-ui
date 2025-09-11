@@ -1,6 +1,7 @@
 ---
 import { NAV_ITEMS } from "@/lib/constants";
 import NavItem from "../ui/NavItem.astro";
+import Button from "../ui/Button.astro";
 ---
 
 <header
@@ -19,13 +20,10 @@ import NavItem from "../ui/NavItem.astro";
         }
       </ul>
     </nav>
-    <button>
-      <a
-        class="text-xl font-medium border-1 border-gray-600 px-5 py-3 rounded-lg hover:bg-accent hover:text-dark-blue transition-all"
-        href="https://github.com/OrlandoDev17/visura-ui"
-        target="_blank"
-        rel="noopener noreferrer">GitHub</a
-      >
-    </button>
+    <Button
+      href="https://github.com/OrlandoDev17/visura-ui"
+      label="GitHub"
+      type="outlined"
+    />
   </div>
 </header>
