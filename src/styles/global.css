@@ -4,7 +4,6 @@
   --color-dark-blue: #0b0f19;
   --color-light-blue: #00bfff;
   --color-accent: #654499;
-  --color-special: #b068ff;
   --color-black-variant: #0b0e12;
   --color-special: #11161c;
 }
@@ -64,4 +63,15 @@
   opacity: 1;
   transform: translateY(0);
   transform: translateX(0);
+}
+
+.menu-content {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.menu-open .menu-content {
+  visibility: visible;
+  opacity: 1;
 }

@@ -6,14 +6,14 @@ import Button from "../ui/Button.astro";
 import Right from "@/icons/Right.astro";
 ---
 
-<section class="relative h-screen">
+<section class="relative h-[120vh] md:h-screen">
   <img
     src="/images/hero.webp"
     alt="Hero de Visura UI"
-    class="max-h-full w-full absolute -z-10"
+    class="h-full w-full absolute -z-10 object-cover"
   />
   <div
-    class="bg-dark-blue/95 z-10 absolute inset-0 flex flex-col gap-8 items-center justify-center"
+    class="bg-dark-blue/95 z-10 absolute inset-0 flex flex-col gap-4 sm:gap-8 items-center justify-center"
   >
     <span data-reveal="top">
       <Tag
@@ -22,17 +22,22 @@ import Right from "@/icons/Right.astro";
         className="shadow-complete border-light-blue/40 bg-light-blue/10"
       />
     </span>
-    <h1 data-reveal="left" class="gradient-text text-7xl text-center font-bold">
+    <h1
+      data-reveal="left"
+      class="gradient-text text-5xl sm:text-6xl xl:text-7xl text-center font-bold"
+    >
       VisuraUI <br /><span class="text-white">Para Webs Modernas</span>
     </h1>
-    <p class="text-2xl text-gray-400 font-medium max-w-4xl text-center">
+    <p
+      class="text-sm sm:text-lg xl:text-2xl text-gray-400 font-medium max-w-2xl xl:max-w-4xl text-center"
+    >
       Biblioteca de componentes visuales para cualquier tipo de interfaz
       moderna. Desde landing pages hasta dashboards técnicos, <span
         class="text-light-blue font-semibold">preparado para escalar</span
       > y <span class="text-accent font-semibold">listo para IA</span> cuando lo
       necesites.
     </p>
-    <div class="flex items-center gap-6 mt-4">
+    <div class="flex sm:flex-row flex-col items-center gap-6 mt-4">
       <Button
         href="#"
         label="Explorar Componentes"
@@ -41,7 +46,10 @@ import Right from "@/icons/Right.astro";
       />
       <Button href="#" label="Documentación Técnica" type="outlined" />
     </div>
-    <div data-reveal-stagger class="flex items-center gap-6 mt-8">
+    <div
+      data-reveal-stagger
+      class="flex items-center gap-6 mt-8 flex-wrap justify-center"
+    >
       {
         TAGS.map((tag) => (
           <div data-reveal-child="top">

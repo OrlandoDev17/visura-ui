@@ -1,0 +1,58 @@
+---
+import MenuIcon from "@/icons/Menu.astro";
+import { NAV_ITEMS } from "@/lib/constants";
+import Button from "./Button.astro";
+---
+
+<label class="md:hidden" for="menuId">
+  <input class="menu-input" type="checkbox" id="menuId" hidden />
+  <MenuIcon
+    class="size-10 p-2 rounded-lg cursor-pointer hover:bg-accent/20 transition-all"
+  />
+</label>
+
+<div
+  class="menu-content absolute top-18 left-0 right-0 z-50 bg-dark-blue py-2 px-8"
+>
+  <article
+    class="flex flex-col gap-4 bg-special rounded-xl p-8 border-1 border-white/10"
+  >
+    <ul class="flex flex-col gap-2">
+      {
+        NAV_ITEMS.map((item, index) => {
+          const active = index === 0;
+
+          return (
+            <li class="flex items-center">
+              <a
+                class={`font-medium px-4 py-2 rounded-xl w-full hover:bg-gray-800/50 hover:text-light-blue transition-all ${active ? "text-light-blue bg-light-blue/10" : ""}`}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <hr class="h-2 border-white/10" />
+    <Button
+      className="justify-center"
+      type="outlined"
+      label="GitHub"
+      href="https://github.com/OrlandoDev17/visura-ui"
+    />
+  </article>
+</div>
+
+<script is:inline>
+  const checkbox = document.getElementsByClassName("menu-input")[0];
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked === true) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+  });
+</script>

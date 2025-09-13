@@ -6,21 +6,28 @@ import Right from "@/icons/Right.astro";
 ---
 
 <section
-  class="flex flex-col items-center gap-16 mb-12 max-w-7xl w-full mx-auto"
+  class="flex flex-col items-center gap-16 mb-12 max-w-11/12 2xl:max-w-9/12 w-full mx-auto"
 >
   <div data-reveal="left" class="flex flex-col gap-4 items-center">
-    <h2 class="text-5xl gradient-text font-bold tracking-wide text-center">
+    <h2
+      class="text-4xl sm:text-5xl gradient-text font-bold tracking-wide text-center"
+    >
       Biblioteca completa <br /><span class="text-white">de componentes</span>
     </h2>
-    <p class="text-lg text-gray-400 font-medium max-w-3xl text-center">
+    <p
+      class="text-base sm:text-lg text-gray-400 font-medium max-w-3xl text-center"
+    >
       Más de 50 componentes técnicos organizados por categorías. Cada uno con
       múltiples variantes, documentación completa y ejemplos prácticos.
     </p>
   </div>
-  <div data-reveal-stagger class="grid grid-cols-3 gap-8 w-full">
+  <div
+    data-reveal-stagger
+    class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 w-full"
+  >
     {COMPONENTS.map((component) => <ComponentCard {...component} />)}
   </div>
-  <div class="flex items-center gap-6">
+  <div class="flex sm:flex-row flex-col items-center gap-6">
     <Button
       className="shadow-complete"
       href="/components"

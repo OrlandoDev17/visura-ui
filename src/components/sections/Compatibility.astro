@@ -4,18 +4,25 @@ import TechCard from "../ui/TechCard.astro";
 ---
 
 <section
-  class="flex flex-col items-center gap-16 mb-12 max-w-7xl w-full mx-auto"
+  class="flex flex-col items-center gap-16 mb-12 max-w-11/12 2xl:max-w-9/12 w-full mx-auto"
 >
   <div data-reveal="left" class="flex flex-col gap-4 items-center">
-    <h2 class="text-5xl text-white font-bold tracking-wide text-center">
+    <h2
+      class="text-4xl sm:text-5xl text-white font-bold tracking-wide text-center"
+    >
       Compatible con tu<br /><span class="gradient-text">Stack Favorito</span>
     </h2>
-    <p class="text-lg text-gray-400 font-medium max-w-3xl text-center">
+    <p
+      class="text-base sm:text-lg text-gray-400 font-medium max-w-3xl text-center"
+    >
       VisuraUI está diseñada para integrarse fácilmente con frameworks modernos
       y entornos técnicos.
     </p>
   </div>
-  <div data-reveal-stagger class="grid grid-cols-3 gap-8 w-full">
+  <div
+    data-reveal-stagger
+    class="grid smgrid-cols-2 xl:grid-cols-3 gap-8 w-full"
+  >
     {
       TECHS.map((tech) => (
         <span data-reveal-child="top">
