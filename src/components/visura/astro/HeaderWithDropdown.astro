@@ -1,0 +1,87 @@
+---
+import Menu from "./Menu.astro";
+
+interface HeaderProps {
+  navLinks?: {
+    label: string;
+    href: string;
+    dropDownItems?: {
+      label: string;
+      href: string;
+    }[];
+  }[];
+  active?: number;
+  className?: string;
+}
+
+const { navLinks, active = 0, className }: HeaderProps = Astro.props;
+---
+
+<style>
+  li:hover .children {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .children {
+    z-index: 50;
+  }
+</style>
+
+<header class="border-b border-gray-800">
+  <div
+    class="flex items-center justify-between max-w-11/12 xl:max-w-9/12 mx-auto py-4"
+  >
+    <picture>
+      <img class="w-36 xl:w-42" src="/logo-visura.svg" alt="Logo de VisuraUI" />
+    </picture>
+    <nav class="hidden md:flex">
+      <ul class="flex items-center gap-6">
+        {
+          navLinks?.map((item, index) => (
+            <li class="parent relative">
+              <a
+                class={`flex items-center gap-2 relative text-xl font-medium hover:text-light-blue hover:scale-105 transition ${index === active && "text-light-blue border-b-2 border-light-blue px-2"} ${className}`}
+                href={item.href}
+              >
+                {item.label}
+                {item.dropDownItems && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down-icon lucide-chevron-down"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                )}
+              </a>
+              {item.dropDownItems && (
+                <ul class="flex flex-col gap-4 absolute top-full bg-special px-10 py-8 rounded-xl w-48 invisible opacity-0 children">
+                  {item.dropDownItems?.map((item) => (
+                    <li>
+                      <a
+                        class={`flex gap-2 text-xl font-medium hover:text-light-blue hover:scale-105 transition  ${className}`}
+                        href={item.href}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <Menu navLinks={navLinks} active={active} />
+  </div>
+</header>

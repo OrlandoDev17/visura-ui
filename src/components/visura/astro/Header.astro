@@ -1,0 +1,37 @@
+---
+import Menu from "./Menu.astro";
+
+interface HeaderProps {
+  navLinks?: {
+    label: string;
+    href: string;
+  }[];
+  active?: number;
+  className?: string;
+}
+
+const { navLinks, active = 0, className }: HeaderProps = Astro.props;
+---
+
+<header class="border-b border-gray-800">
+  <div
+    class="flex items-center justify-between max-w-11/12 xl:max-w-9/12 mx-auto py-4"
+  >
+    <picture>
+      <img class="w-36 xl:w-42" src="/logo-visura.svg" alt="Logo de VisuraUI" />
+    </picture>
+    <nav class="hidden md:flex items-center gap-6">
+      {
+        navLinks?.map((item, index) => (
+          <a
+            class={`text-xl font-medium hover:text-light-blue hover:scale-105 transition ${index === active && "text-light-blue border-b-2 border-light-blue px-2"} ${className}`}
+            href={item.href}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <Menu navLinks={navLinks} active={active} />
+  </div>
+</header>
