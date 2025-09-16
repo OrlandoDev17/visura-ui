@@ -75,3 +75,16 @@
   visibility: visible;
   opacity: 1;
 }
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tooltip:hover .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}

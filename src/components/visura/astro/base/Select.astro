@@ -1,0 +1,75 @@
+---
+interface SelectProps {
+  title?: string;
+  options?: string[];
+  className?: string;
+}
+
+const { title, options, className }: SelectProps = Astro.props;
+---
+
+<style>
+  #selectOptions {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #selectOptions.open {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
+<div class="flex flex-col gap-4">
+  <label
+    class="flex items-center gap-2 py-3 px-6 rounded-xl border border-white/10 bg-slate-800/50 hover:-translate-y-1 hover:border-white/40 transition-all cursor-pointer text-lg font-medium"
+    class={className}
+    for="selectId"
+  >
+    <input type="checkbox" id="selectId" hidden />
+    {title}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-chevron-down-icon lucide-chevron-down"
+      ><path d="m6 9 6 6 6-6"></path></svg
+    >
+  </label>
+  <article
+    id="selectOptions"
+    class="flex flex-col gap-2 bg-slate-800/50 px-4 py-4 rounded-xl border-1 border-white/10"
+  >
+    <ul class="flex flex-col gap-4">
+      {
+        options?.map((option) => (
+          <li>
+            <label
+              class="flex items-center gap-3 bg-light-blue/10 px-4 py-2 rounded-lg cursor-pointer hover:bg-light-blue/20 transition text-lg font-medium"
+              for={option}
+            >
+              <input class="size-4" type="radio" name="select" id={option} />
+              {option}
+            </label>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</div>
+
+<script is:inline>
+  const checkbox = document.getElementById("selectId");
+  const selectOptions = document.getElementById("selectOptions");
+
+  checkbox.addEventListener("change", () => {
+    selectOptions.classList.toggle("open");
+  });
+</script>
