@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat Variable", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  @apply bg-slate-900;
+} */
