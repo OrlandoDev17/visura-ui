@@ -19,3 +19,18 @@
 ### Fixed
 
 - 🐛 Corrección de rutas de exportación en `index.ts`
+
+## [1.0.3] - 2025-09-18
+
+### Added
+
+- 🛠️ CLI `visura-init` para configurar TailwindCSS de forma interactiva
+- 📚 Documentación completa en README con estructura de componentes y filosofía
+
+### Removed
+
+- 🧹 Script `postinstall.js` eliminado para evitar conflictos con pnpm/yarn
+
+### Changed
+
+- 🔧 Ajustes en `package.json` para definir binario `visura-init`
