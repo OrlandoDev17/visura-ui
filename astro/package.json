@@ -3,7 +3,7 @@
     "visura-init": "./cli/init.js"
   },
   "name": "visura-ui-astro",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "VisuraUI V1 - Componentes visuales para Astro",
   "main": "index.ts",
   "author": "Orlando López",
