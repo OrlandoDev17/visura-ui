@@ -1,6 +1,6 @@
 {
-  "scripts": {
-    "postinstall": "node ./postinstall.js"
+  "bin": {
+    "visura-init": "./cli/init.js"
   },
   "name": "visura-ui-astro",
   "version": "1.0.2",

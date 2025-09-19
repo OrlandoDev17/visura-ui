@@ -13,6 +13,10 @@ npm install visura-ui-astro
 # o
 yarn add visura-ui-astro
 
+
+# Puedes ejecutar el CLI para configurar TailwindCSS
+npx visura-init
+
 # Componentes base
 import { Button, Input, Select } from 'visura-ui-astro/base';
 
@@ -58,4 +62,3 @@ Los componentes de VisuraUI Astro pueden ser personalizados usando variables CSS
 ### Contribución
 
 Las contribuciones son bienvenidas. Por favor, lee nuestra guía de contribución antes de enviar un pull request.
-
