@@ -3,7 +3,7 @@
     "postinstall": "node ./postinstall.js"
   },
   "name": "visura-ui-astro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VisuraUI V1 - Componentes visuales para Astro",
   "main": "index.ts",
   "author": "Orlando López",
