@@ -23,7 +23,7 @@ const themeClasses = {
   light: "bg-white text-gray-800 border border-gray-200",
 };
 
-export default function Tooltip({
+export function Tooltip({
   content,
   position = "top",
   children,

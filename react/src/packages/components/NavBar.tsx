@@ -4,8 +4,8 @@ interface NavBarProps {
 
 export function NavBar({ children }: NavBarProps) {
   return (
-    <nav>
-      <ul className="flex gap-6">{children}</ul>
+    <nav className="hidden md:block">
+      <ul className="flex justify-center gap-6">{children}</ul>
     </nav>
   );
 }

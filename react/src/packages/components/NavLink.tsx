@@ -23,7 +23,7 @@ export function NavLink({
   return (
     <li>
       <a
-        className={`text-lg font-medium pb-2 border-b-2 border-transparent  transition-all ${
+        className={`text-lg font-medium pb-2 border-b-2 border-transparent transition-all ${
           themes[theme]
         } ${
           active === index

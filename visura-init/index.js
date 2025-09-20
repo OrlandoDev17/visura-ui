@@ -14,25 +14,36 @@ const { execSync } = require("child_process");
     initial: true,
   });
 
+  const response2 = await prompts({
+    type: "select",
+    name: "packageManager",
+    message: "¿Con qué paquete manager querés que instalemos TailwindCSS?",
+    choices: [
+      { title: "npm", value: "npm install" },
+      { title: "pnpm", value: "pnpm add" },
+      { title: "yarn", value: "yarn add" },
+    ],
+    initial: true,
+  });
+
   if (response.install) {
     console.log("\n📦 Instalando TailwindCSS...");
-    execSync("npm install -D tailwindcss @tailwindcss/vite", {
+    execSync(`${response2.packageManager} tailwindcss @tailwindcss/vite`, {
       stdio: "inherit",
     });
-    execSync("mkdir src/styles", { stdio: "inherit" });
-    execSync("touch src/styles/global.css", { stdio: "inherit" });
-    console.log("\n✅ TailwindCSS instalado y configurado.");
+    console.log(`\nAhora debes agregar esto en tu vite.config.js`);
+    console.log(`plugins: [
+    tailwindcss(),
+  ],`);
+    console.log(`\nY luego debes agregar esto en tu global.css`);
+    console.log(`@import "@tailwindcss"`);
+    console.log(
+      `\nY finalmente debes importar global.css en tu archivo principal`
+    );
+    console.log(`import "./src/styles/global.css"`);
   } else {
     console.log(
       "\n⚠️ Recordá instalarlo manualmente para que VisuraUI funcione correctamente."
-    );
-    console.log("👉 npm install -D tailwindcss @tailwindcss/vite");
-    console.log("👉 mkdir src/styles");
-    console.log("👉 touch src/styles/global.css\n");
-    console.log("👉 Agrega esta linea a global.css\n");
-    console.log("import @tailwindcss");
-    console.log(
-      "E importa ese archivo en el archivo en tu raiz Ej. src/main.ts o src/layout.astro\n"
     );
   }
 })();

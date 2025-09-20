@@ -1,35 +1,51 @@
-import { Button } from "./components/Button";
-import { Badge } from "./components/Badge";
-import { Typography } from "./components/Typography";
-import { ButtonGroup } from "./components/ButtonGroup";
-import { Input } from "./components/Input";
-import { Header } from "./components/Header";
-import { NavBar } from "./components/NavBar";
-import { NavLink } from "./components/NavLink";
-import { Card } from "./components/Card";
-import Tooltip from "./components/Tooltip";
+import { useState } from "react";
+
+import { Button } from "./packages/components/Button";
+import { Badge } from "./packages/components/Badge";
+import { Typography } from "./packages/components/Typography";
+import { ButtonGroup } from "./packages/components/ButtonGroup";
+import { Input } from "./packages/components/Input";
+import { Header } from "./packages/components/Header";
+import { NavBar } from "./packages/components/NavBar";
+import { NavLink } from "./packages/components/NavLink";
+import { Card } from "./packages/components/Card";
+import Tooltip from "./packages/components/Tooltip";
+import { Menu } from "./packages/components/Menu";
+import { Modal } from "./packages/components/Modal";
+import { Dropdown } from "./packages/components/Dropdown";
 
 const Buttons = [
   {
-    id: 1,
+    id: 100,
     label: "Google",
     href: "https://google.com",
   },
   {
-    id: 2,
+    id: 200,
     label: "Instagram",
     href: "https://instagram.com",
   },
   {
-    id: 3,
+    id: 300,
     label: "Youtube",
     href: "https://youtube.com",
   },
 ];
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+
+  const ToggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const ToggleDropdown = () => {
+    setIsOpenDropdown(!isOpenDropdown);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full gap-8 my-12">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full gap-8 my-12 relative">
       <div className="flex gap-4">
         <Button type="default">Default</Button>
         <Button href="https://google.com" type="outlined">
@@ -104,6 +120,50 @@ function App() {
           ))}
         </NavBar>
       </Header>
+      <Header theme="light">
+        <div className="flex-grow basis-0">
+          <span className="text-2xl font-bold">Logo</span>
+        </div>
+        <NavBar>
+          {Buttons.map((button, index) => (
+            <NavLink
+              theme="light"
+              key={button.id}
+              href={button.href}
+              index={index}
+            >
+              {button.label}
+            </NavLink>
+          ))}
+        </NavBar>
+        <div className="hidden md:flex gap-4 flex-grow basis-0 justify-end">
+          <Button type="default">Iniciar Sesión</Button>
+          <Button type="outlined">Registrarse</Button>
+        </div>
+        <Menu theme="light" links={Buttons} />
+      </Header>
+      <Header theme="dark">
+        <div className="flex-grow basis-0">
+          <span className="text-2xl font-bold">Logo</span>
+        </div>
+        <NavBar>
+          {Buttons.map((button, index) => (
+            <NavLink
+              theme="dark"
+              key={button.id}
+              href={button.href}
+              index={index}
+            >
+              {button.label}
+            </NavLink>
+          ))}
+        </NavBar>
+        <div className="hidden md:flex gap-4 flex-grow basis-0 justify-end">
+          <Button type="default">Iniciar Sesión</Button>
+          <Button type="outlined">Registrarse</Button>
+        </div>
+        <Menu theme="dark" links={Buttons} />
+      </Header>
       <div className="flex gap-4">
         <Card theme="dark">
           <Typography as="h1" variant="heading">
@@ -155,6 +215,57 @@ function App() {
         >
           <Button>Tooltip Izquierda</Button>
         </Tooltip>
+      </div>
+      <div className="flex gap-4">
+        <Button onClick={ToggleModal} type="ghost">
+          Haz Click Aqui
+        </Button>
+        <Modal
+          theme="dark"
+          isOpen={isOpen}
+          setIsOpen={ToggleModal}
+          title="Modal"
+        >
+          <div>
+            <Typography as="p" variant="body">
+              Un Modal es un elemento que se muestra en una ventana emergente,
+              al darle click a un elemento en concreto. sirve para mostrar
+              informacion adicional o para confirmar una accion.
+            </Typography>
+          </div>
+        </Modal>
+      </div>
+      <div className="flex flex-col gap-4">
+        <Dropdown
+          theme="dark"
+          title="Haz Click Aqui"
+          isOpen={isOpenDropdown}
+          toggleDropdown={ToggleDropdown}
+        >
+          {Buttons.map((button) => (
+            <li
+              className="px-4 py-2 bg-slate-600 rounded-lg font-medium hover:bg-slate-500 cursor-pointer transition-all"
+              key={button.id}
+            >
+              {button.label}
+            </li>
+          ))}
+        </Dropdown>
+        <Dropdown
+          theme="light"
+          title="Haz Click Aqui"
+          isOpen={isOpenDropdown}
+          toggleDropdown={ToggleDropdown}
+        >
+          {Buttons.map((button) => (
+            <li
+              className="px-4 py-2 bg-gray-300 rounded-lg font-medium hover:bg-gray-400 cursor-pointer transition-all"
+              key={button.id}
+            >
+              {button.label}
+            </li>
+          ))}
+        </Dropdown>
       </div>
     </div>
   );

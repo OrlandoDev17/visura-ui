@@ -30,9 +30,9 @@ export function ButtonGroup({
       {buttons.map((button) => (
         <>
           <a
+            key={button.id}
             className={`${themes[theme]} px-6 py-3 font-medium rounded-xl transition-all`}
             href={button.href}
-            key={button.id}
             target="_blank"
             rel="noopener noreferrer"
           >

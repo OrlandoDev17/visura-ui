@@ -11,6 +11,7 @@ interface ButtonProps {
   type?: ButtonType;
   children: React.ReactNode;
   href?: string;
+  onClick?: () => void;
   className?: string;
 }
 
@@ -31,18 +32,20 @@ export function Button({
   children,
   className,
   href,
+  onClick,
 }: ButtonProps) {
   return (
     <button
+      onClick={onClick}
       className={`flex items-center gap-2 ${
-        href ? "" : "px-6 py-2"
-      } rounded-lg text-lg font-medium hover:-translate-y-1 transition-all ${
+        href ? "" : "px-4 md:px-6 py-2"
+      } rounded-lg text-base md:text-lg font-medium hover:-translate-y-1 transition-all cursor-pointer ${
         types[type]
       } ${className}`}
     >
       {href ? (
         <a
-          className="px-6 py-2"
+          className="px-4 md:px-6 py-2"
           href={href}
           target="_blank"
           rel="noopener noreferrer"

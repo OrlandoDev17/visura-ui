@@ -1,0 +1,36 @@
+{
+  "name": "visura-ui-react",
+  "version": "1.0.1",
+  "description": "Libreria de componentes de React con soporte para variantes, temas y mas.",
+  "main": "index.ts",
+  "types": "index.ts",
+  "files": [
+    "components",
+    "index.ts"
+  ],
+  "keywords": [
+    "react",
+    "ui",
+    "ux",
+    "components",
+    "component-library",
+    "design-system",
+    "tailwindcss",
+    "montserrat",
+    "visura-ui"
+  ],
+  "author": "Orlando López",
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource-variable/montserrat": "^5.2.8",
+    "@tailwindcss/vite": "^4.1.13",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.6"
+  }
+}
