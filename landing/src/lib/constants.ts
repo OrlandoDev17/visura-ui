@@ -299,3 +299,93 @@ export const TECHS = [
     url: "/docs/techs#angular",
   },
 ];
+
+export const SIDE_SECTIONS = [
+  {
+    id: "docs",
+    label: "Documentación",
+    sections: [
+      {
+        id: "introduction",
+        label: "Introducción",
+        href: "/docs#introduction",
+      },
+      {
+        id: "why",
+        label: "¿Por qué VisuraUI?",
+        href: "/docs#why",
+      },
+      {
+        id: "installation",
+        label: "Instalación",
+        href: "/docs#installation",
+      },
+      {
+        id: "changelog",
+        label: "Changelog",
+        href: "/docs#changelog",
+      },
+    ],
+  },
+  {
+    id: "components",
+    label: "Componentes",
+    sections: [
+      {
+        id: "header",
+        label: "Header",
+        href: "/docs/components/header",
+      },
+      {
+        id: "button",
+        label: "Button",
+        href: "/docs/components/button",
+      },
+      {
+        id: "badge",
+        label: "Badge",
+        href: "/docs/components/badge",
+      },
+      {
+        id: "card",
+        label: "Card",
+        href: "/docs/components/card",
+      },
+      {
+        id: "button-group",
+        label: "Button Group",
+        href: "/docs/components/button-group",
+      },
+      {
+        id: "modal",
+        label: "Modal",
+        href: "/docs/components/modal",
+      },
+      {
+        id: "dropdown",
+        label: "Dropdown",
+        href: "/docs/components/dropdown",
+      },
+      {
+        id: "navbar",
+        label: "Navbar",
+        href: "/docs/components/navbar",
+      },
+      {
+        id: "tooltip",
+        label: "Tooltip",
+        href: "/docs/components/tooltip",
+      },
+      {
+        id: "typography",
+        label: "Typography",
+        href: "/docs/components/typography",
+      },
+      {
+        id: "input",
+        label: "Input",
+        href: "/docs/components/input",
+      },
+    ],
+  },
+];

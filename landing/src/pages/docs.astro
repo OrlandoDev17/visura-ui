@@ -1,0 +1,77 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Sidebar from "@/components/ui/Sidebar.astro";
+import { landingDoc } from "@/docs/landing";
+import { CodeBlock } from "@/components/ui/CodeBlock";
+
+const { introduction, whyVisuraUI, instalation, changelog } = landingDoc;
+---
+
+<Layout>
+  <main
+    class="flex flex-col relative top-20 gap-8 max-w-11/12 xl:max-w-9/12 mx-auto"
+  >
+    <Sidebar />
+    <section class="flex flex-col gap-8 mt-12 ml-72">
+      <header>
+        <h1 class="text-2xl xl:text-4xl font-bold">
+          VisuraUI — Librería de Componentes TailwindCss
+        </h1>
+        <hr class="border border-white/20" />
+      </header>
+      <div id="introduction" class="flex flex-col gap-2">
+        <h3 class="text-xl xl:text-2xl font-semibold">{introduction.title}</h3>
+        <p class="text-gray-300 text-lg font-medium text-balance max-w-5xl">
+          {introduction.content}
+        </p>
+      </div>
+      <div id="why" class="flex flex-col gap-2">
+        <h3 class="text-xl xl:text-2xl font-semibold">{whyVisuraUI.title}</h3>
+        <p class="text-gray-300 text-lg font-medium text-balance max-w-5xl">
+          {whyVisuraUI.content}
+        </p>
+      </div>
+      <div id="instalation" class="flex flex-col gap-2">
+        <h3 class="text-xl xl:text-2xl font-semibold">{instalation.title}</h3>
+        <h4 class="text-lg font-semibold mt-2">Requisitos de Instalación</h4>
+        <ul class="flex flex-col gap-6">
+          {
+            instalation.requirements.map((requirement) => (
+              <li class="text-gray-300 font-medium mb-4">- {requirement}</li>
+            ))
+          }
+        </ul>
+        <ul class="flex flex-col gap-4">
+          <h4 class="text-lg font-semibold mt-2">Pasos de Instalación</h4>
+          {
+            instalation.steps.map((step) => (
+              <li class="flex flex-col gap-4 text-gray-300 font-medium">
+                - {step.step}
+                <CodeBlock client:load code={step.code} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div id="changelog" class="flex flex-col gap-4">
+        <h3 class="text-xl xl:text-2xl font-semibold">{changelog.title}</h3>
+        <ul class="flex flex-col gap-2">
+          {
+            changelog.changes.map((change) => (
+              <li class="flex flex-col gap-2 text-gray-300 text-lg font-medium">
+                <h4 class="text-lg font-semibold">
+                  {change.version} - {change.date}
+                </h4>
+                <ul class="flex flex-col gap-2">
+                  {change.changes.map((change) => (
+                    <li class="text-gray-300 text-lg font-medium">{change}</li>
+                  ))}
+                </ul>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>
