@@ -3,6 +3,7 @@
 @source "../node_modules/visura-ui-react";
 
 @theme {
+  --color-primary: #13171f;
   --color-dark-blue: #0b0f19;
   --color-light-blue: #00bfff;
   --color-accent: #654499;
