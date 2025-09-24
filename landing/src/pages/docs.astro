@@ -1,77 +1,76 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Sidebar from "@/components/ui/Sidebar.astro";
-import { landingDoc } from "@/docs/landing";
-import { CodeBlock } from "@/components/ui/CodeBlock";
+import DocHeader from "@/components/ui/DocHeader.astro";
+import { SideBar } from "@/components/ui/SideBar.tsx";
+import Tag from "@/components/ui/Tag.astro";
+import Zap from "@/icons/Zap.astro";
+import DocSection from "@/components/ui/DocSection.astro";
+import OpenBook from "@/icons/OpenBook.astro";
+import { documentation } from "@/docs/documentation";
+import Check from "@/icons/Check.astro";
 
-const { introduction, whyVisuraUI, instalation, changelog } = landingDoc;
+const { introduction } = documentation;
 ---
 
 <Layout>
-  <main
-    class="flex flex-col relative top-20 gap-8 max-w-11/12 xl:max-w-9/12 mx-auto"
-  >
-    <Sidebar />
-    <section class="flex flex-col gap-8 mt-12 ml-72">
-      <header>
-        <h1 class="text-2xl xl:text-4xl font-bold">
-          VisuraUI — Librería de Componentes TailwindCss
+  <main class="flex flex-col gap-4 w-full">
+    <div class="flex items-start">
+      <SideBar client:load />
+      <DocHeader />
+    </div>
+    <div class="flex flex-col items-center gap-24 ml-[448px] pl-8 pr-24 mt-8">
+      <header class="flex flex-col gap-8 items-center">
+        <Tag
+          icon={Zap}
+          label="VisuraUI - Libreria de Componentes TailwindCSS"
+          className="shadow-complete border-light-blue/40 bg-light-blue/10 w-fit"
+        />
+        <h1
+          class="gradient-text text-2xl sm:text-4xl xl:text-5xl text-center font-bold"
+        >
+          Construye interfaces <br /> modernas con VisuraUI
         </h1>
-        <hr class="border border-white/20" />
+        <p class="text-gray-400 text-center text-lg md:text-xl max-w-3xl">
+          La biblioteca de componentes pensada para desarrolladores que no
+          quieren comprometer entre <b class="text-light-blue font-semibold"
+            >diseño, funcionalidad y escalabilidad</b
+          >.
+        </p>
       </header>
-      <div id="introduction" class="flex flex-col gap-2">
-        <h3 class="text-xl xl:text-2xl font-semibold">{introduction.title}</h3>
-        <p class="text-gray-300 text-lg font-medium text-balance max-w-5xl">
-          {introduction.content}
+      {/* Introducción */}
+      <DocSection
+        icon={OpenBook}
+        title={introduction.title}
+        borderColor="hover:border-light-blue"
+        bgColor="bg-light-blue/10"
+        textColor="text-light-blue"
+      >
+        <p class="text-gray-300 md:text-lg">
+          {introduction.paragraph}
         </p>
-      </div>
-      <div id="why" class="flex flex-col gap-2">
-        <h3 class="text-xl xl:text-2xl font-semibold">{whyVisuraUI.title}</h3>
-        <p class="text-gray-300 text-lg font-medium text-balance max-w-5xl">
-          {whyVisuraUI.content}
-        </p>
-      </div>
-      <div id="instalation" class="flex flex-col gap-2">
-        <h3 class="text-xl xl:text-2xl font-semibold">{instalation.title}</h3>
-        <h4 class="text-lg font-semibold mt-2">Requisitos de Instalación</h4>
-        <ul class="flex flex-col gap-6">
+        <ul class="flex items-center gap-4">
           {
-            instalation.requirements.map((requirement) => (
-              <li class="text-gray-300 font-medium mb-4">- {requirement}</li>
-            ))
-          }
-        </ul>
-        <ul class="flex flex-col gap-4">
-          <h4 class="text-lg font-semibold mt-2">Pasos de Instalación</h4>
-          {
-            instalation.steps.map((step) => (
-              <li class="flex flex-col gap-4 text-gray-300 font-medium">
-                - {step.step}
-                <CodeBlock client:load code={step.code} />
+            introduction.adventages.map((advantage) => (
+              <li>
+                <span class="flex items-center gap-2 text-lg font-semibold">
+                  <Check class="size-5 text-green-500" />
+                  {advantage.title}
+                </span>
+                <p class="text-gray-300 text-sm">{advantage.text}</p>
               </li>
             ))
           }
         </ul>
-      </div>
-      <div id="changelog" class="flex flex-col gap-4">
-        <h3 class="text-xl xl:text-2xl font-semibold">{changelog.title}</h3>
-        <ul class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
           {
-            changelog.changes.map((change) => (
-              <li class="flex flex-col gap-2 text-gray-300 text-lg font-medium">
-                <h4 class="text-lg font-semibold">
-                  {change.version} - {change.date}
-                </h4>
-                <ul class="flex flex-col gap-2">
-                  {change.changes.map((change) => (
-                    <li class="text-gray-300 text-lg font-medium">{change}</li>
-                  ))}
-                </ul>
-              </li>
+            introduction.tags.map((tag) => (
+              <span class="w-fit bg-neutral-800 px-4 py-1 rounded-full text-xs">
+                {tag}
+              </span>
             ))
           }
-        </ul>
-      </div>
-    </section>
+        </div>
+      </DocSection>
+    </div>
   </main>
 </Layout>

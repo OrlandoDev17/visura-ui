@@ -13,6 +13,7 @@ import Loader from "@/icons/Loader.astro";
 import Message from "@/icons/Message.astro";
 import Mouse from "@/icons/Mouse.astro";
 import Robot from "@/icons/Robot.astro";
+import { Book, OpenBook, Calendar, File, Download } from "@/icons/Icons";
 
 export const NAV_ITEMS = [
   {
@@ -300,91 +301,31 @@ export const TECHS = [
   },
 ];
 
-export const SIDE_SECTIONS = [
+export const SIDEBAR_LINKS = [
   {
     id: "docs",
+    icon: Book,
     label: "Documentación",
-    sections: [
+    items: [
       {
-        id: "introduction",
+        itemId: "introduction",
+        icon: OpenBook,
         label: "Introducción",
-        href: "/docs#introduction",
       },
       {
-        id: "why",
-        label: "¿Por qué VisuraUI?",
-        href: "/docs#why",
+        itemId: "why-visura-ui",
+        icon: File,
+        label: "¿Por qué Visura UI?",
       },
       {
-        id: "installation",
+        itemId: "instalation",
+        icon: Download,
         label: "Instalación",
-        href: "/docs#installation",
       },
       {
-        id: "changelog",
+        itemId: "changelog",
+        icon: Calendar,
         label: "Changelog",
-        href: "/docs#changelog",
-      },
-    ],
-  },
-  {
-    id: "components",
-    label: "Componentes",
-    sections: [
-      {
-        id: "header",
-        label: "Header",
-        href: "/docs/components/header",
-      },
-      {
-        id: "button",
-        label: "Button",
-        href: "/docs/components/button",
-      },
-      {
-        id: "badge",
-        label: "Badge",
-        href: "/docs/components/badge",
-      },
-      {
-        id: "card",
-        label: "Card",
-        href: "/docs/components/card",
-      },
-      {
-        id: "button-group",
-        label: "Button Group",
-        href: "/docs/components/button-group",
-      },
-      {
-        id: "modal",
-        label: "Modal",
-        href: "/docs/components/modal",
-      },
-      {
-        id: "dropdown",
-        label: "Dropdown",
-        href: "/docs/components/dropdown",
-      },
-      {
-        id: "navbar",
-        label: "Navbar",
-        href: "/docs/components/navbar",
-      },
-      {
-        id: "tooltip",
-        label: "Tooltip",
-        href: "/docs/components/tooltip",
-      },
-      {
-        id: "typography",
-        label: "Typography",
-        href: "/docs/components/typography",
-      },
-      {
-        id: "input",
-        label: "Input",
-        href: "/docs/components/input",
       },
     ],
   },
