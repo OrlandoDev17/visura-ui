@@ -87,4 +87,27 @@ export const documentation = {
       },
     ],
   },
+  changelog: {
+    title: "Changelog",
+    info: [
+      {
+        version: "VisuraUI React v1.0.1",
+        date: "2025-09-22",
+        state: "Publicado",
+        changes: [
+          {
+            change: "Publicación inicial del paquete",
+            componentsTitle: "Componentes: ",
+            components: [
+              "Button, Modal, Typography, Input, Card, Tooltip, Header, Badge, Button Group, Dropdown",
+            ],
+          },
+        ],
+        featuresTitle: "Características",
+        features: [
+          "Soporte para variantes, temas y tipografia Montserrat Variable, altamente personalizable",
+        ],
+      },
+    ],
+  },
 };

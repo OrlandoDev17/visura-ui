@@ -1,0 +1,63 @@
+---
+import DocSection from "@/components/ui/DocSection.astro";
+import { documentation } from "@/docs/documentation";
+import Download from "@/icons/Download.astro";
+import Check from "@/icons/Check.astro";
+import Copy from "@/icons/Copy.astro";
+import Button from "@/components/ui/Button.astro";
+import Link from "@/icons/Link.astro";
+
+const { instalation } = documentation;
+---
+
+<DocSection
+  id="instalation"
+  icon={Download}
+  title={instalation.title}
+  borderColor="hover:border-green-500"
+  bgColor="bg-green-500/10"
+  textColor="text-green-500"
+>
+  <h3 class="text-lg font-semibold">{instalation.requirementsTitle}</h3>
+  <ul class="flex items-center gap-12 flex-wrap">
+    {
+      instalation.requirements.map((req) => (
+        <li class="flex items-center gap-4">
+          <Check class="size-5 text-green-500" />
+          <span class="text-gray-300 text-sm max-w-md">{req}</span>
+        </li>
+      ))
+    }
+  </ul>
+  <h3 class="text-lg font-semibold">{instalation.stepsTitle}</h3>
+  <ol class="flex flex-col gap-6">
+    {
+      instalation.steps.map(({ number, text, command }) => (
+        <li class="flex items-center gap-6">
+          <span class="flex items-center justify-center size-10 rounded-full bg-blue-500/10 text-blue-500 text-xl font-semibold">
+            {number}
+          </span>
+          <div class="flex flex-col gap-4 w-full">
+            <span class="font-medium">{text}</span>
+            <span class="flex items-center justify-between w-full text-sm text-green-500 font-mono group">
+              {command}
+              <Copy class="size-9 p-2 rounded-lg cursor-pointer hover:bg-green-500/10 transition-all invisible opacity-0 group-hover:visible group-hover:opacity-100" />
+            </span>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+  <hr class="w-full border-gray-500/20" />
+  <span class="text-gray-400 text-sm"
+    >¿Necesitas ayuda con la instalación?. Estamos aquí para ayudarte.</span
+  >
+  <div class="flex items-center gap-4">
+    <Button href="#" label="Guia Detallada" type="filled" icon={Link} />
+    <Button
+      href="mailto:orlandodev1707@gmail.com"
+      label="Contactanos"
+      type="outlined"
+    />
+  </div>
+</DocSection>

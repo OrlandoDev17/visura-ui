@@ -1,0 +1,35 @@
+---
+import DocSection from "@/components/ui/DocSection.astro";
+import { documentation } from "@/docs/documentation";
+import File from "@/icons/File.astro";
+
+const { whyVisuraui } = documentation;
+---
+
+<DocSection
+  id="why-visura-ui"
+  icon={File}
+  title={whyVisuraui.title}
+  borderColor="hover:border-purple-400"
+  bgColor="bg-purple-400/10"
+  textColor="text-purple-400"
+>
+  <ul class="flex items-center gap-8">
+    {
+      whyVisuraui.itemList.map(
+        ({ title, text, icon: Icon, bgColor, textColor }) => (
+          <li class="flex flex-col gap-2">
+            <Icon class={`size-11 p-2 rounded-lg ${bgColor} ${textColor}`} />
+            <h4 class="text-lg font-semibold">{title}</h4>
+            <p class="text-gray-300 text-sm">{text}</p>
+          </li>
+        )
+      )
+    }
+  </ul>
+  <hr class="w-full border-gray-500/20" />
+  <span class="text-gray-400 text-center [font-style:italic]"
+    >"VisuraUI no es solo código - es la diferencia entre un producto que
+    funciona y uno que <strong class="text-purple-400">destaca</strong>."</span
+  >
+</DocSection>

@@ -1,0 +1,43 @@
+---
+import DocSection from "@/components/ui/DocSection.astro";
+import { documentation } from "@/docs/documentation";
+import OpenBook from "@/icons/OpenBook.astro";
+import Check from "@/icons/Check.astro";
+
+const { introduction } = documentation;
+---
+
+<DocSection
+  id="introduction"
+  icon={OpenBook}
+  title={introduction.title}
+  borderColor="hover:border-light-blue"
+  bgColor="bg-light-blue/10"
+  textColor="text-light-blue"
+>
+  <p class="text-gray-300 md:text-lg">
+    {introduction.paragraph}
+  </p>
+  <ul class="flex items-center gap-4">
+    {
+      introduction.adventages.map((advantage) => (
+        <li>
+          <span class="flex items-center gap-2 text-lg font-semibold">
+            <Check class="size-5 text-green-500" />
+            {advantage.title}
+          </span>
+          <p class="text-gray-300 text-sm">{advantage.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="flex items-center gap-2">
+    {
+      introduction.tags.map((tag) => (
+        <span class="w-fit bg-slate-800 px-4 py-1 rounded-full text-xs">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+</DocSection>

@@ -1,0 +1,57 @@
+---
+import DocSection from "@/components/ui/DocSection.astro";
+import { documentation } from "@/docs/documentation";
+import Calendar from "@/icons/Calendar.astro";
+
+const { changelog } = documentation;
+---
+
+<DocSection
+  id="changelog"
+  title={changelog.title}
+  icon={Calendar}
+  bgColor="bg-orange-500/10"
+  textColor="text-orange-500"
+  borderColor="hover:border-orange-500/30"
+>
+  <article class="flex gap-6">
+    <div class="flex relative">
+      <span class="size-6 rounded-full bg-light-blue z-10"> </span>
+      <span
+        class="h-full w-1 bg-light-blue/20 absolute top-0 left-1/2 -translate-x-1/2"
+      ></span>
+    </div>
+    <div class="flex flex-col gap-4">
+      <header class="flex items-center gap-4">
+        <span class="font-semibold tracking-wider">
+          {changelog.info[0].version}
+        </span>
+        <span class="px-4 py-0.5 bg-gray-800 rounded-full">
+          {changelog.info[0].date}
+        </span>
+        <span
+          class="px-4 py-0.5 bg-green-500/10 text-green-500 border border-green-500/30 rounded-full"
+        >
+          {changelog.info[0].state}
+        </span>
+      </header>
+      <div class="flex flex-col gap-4">
+        <span class="text-gray-400 font-medium">
+          {changelog.info[0].changes[0].change}
+        </span>
+        <h4 class="font-semibold">
+          {changelog.info[0].changes[0].componentsTitle}
+        </h4>
+        <p class="text-gray-400">
+          {changelog.info[0].changes[0].components}
+        </p>
+        <h4 class="font-semibold">
+          {changelog.info[0].featuresTitle}
+        </h4>
+        <p class="tracking-wide text-gray-400">
+          {changelog.info[0].features}
+        </p>
+      </div>
+    </div>
+  </article>
+</DocSection>

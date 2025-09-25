@@ -5,15 +5,32 @@ import NextJs from "@/icons/brands/NextJs.astro";
 import React from "@/icons/brands/React.astro";
 import Svelte from "@/icons/brands/Svelte.astro";
 import Vue from "@/icons/brands/Vue.astro";
-import Card from "@/icons/Card.astro";
 import Code from "@/icons/Code.astro";
+import Loader from "@/icons/Loader.astro";
 import Layers from "@/icons/Layers.astro";
 import Layout from "@/icons/Layout.astro";
-import Loader from "@/icons/Loader.astro";
 import Message from "@/icons/Message.astro";
 import Mouse from "@/icons/Mouse.astro";
 import Robot from "@/icons/Robot.astro";
-import { Book, OpenBook, Calendar, File, Download } from "@/icons/Icons";
+import {
+  Card,
+  Book,
+  OpenBook,
+  Calendar,
+  File,
+  Download,
+  Layout as LayoutIcon,
+  Layers as LayersIcon,
+  Click,
+  Tag,
+  Component,
+  Typography,
+  Window,
+  Search,
+  Group,
+  ChevronDown,
+  NavBar,
+} from "@/icons/Icons";
 
 export const NAV_ITEMS = [
   {
@@ -306,7 +323,7 @@ export const SIDEBAR_LINKS = [
     id: "docs",
     icon: Book,
     label: "Documentación",
-    items: [
+    sections: [
       {
         itemId: "introduction",
         icon: OpenBook,
@@ -326,6 +343,68 @@ export const SIDEBAR_LINKS = [
         itemId: "changelog",
         icon: Calendar,
         label: "Changelog",
+      },
+    ],
+  },
+  {
+    id: "components",
+    icon: LayersIcon,
+    label: "Componentes",
+    sections: [
+      {
+        itemId: "header",
+        icon: LayoutIcon,
+        label: "Header",
+      },
+      {
+        itemId: "button",
+        icon: Click,
+        label: "Button",
+      },
+      {
+        itemId: "card",
+        icon: Card,
+        label: "Card",
+      },
+      {
+        itemId: "badge",
+        icon: Tag,
+        label: "Badge",
+      },
+      {
+        itemId: "modal",
+        icon: Component,
+        label: "Modal",
+      },
+      {
+        itemId: "typography",
+        icon: Typography,
+        label: "Typography",
+      },
+      {
+        itemId: "input",
+        icon: Search,
+        label: "Input",
+      },
+      {
+        itemId: "tooltip",
+        icon: Window,
+        label: "Tooltip",
+      },
+      {
+        itemId: "button-group",
+        icon: Group,
+        label: "Button Group",
+      },
+      {
+        itemId: "dropdown",
+        icon: ChevronDown,
+        label: "Dropdown",
+      },
+      {
+        itemId: "navbar",
+        icon: NavBar,
+        label: "Navbar",
       },
     ],
   },
