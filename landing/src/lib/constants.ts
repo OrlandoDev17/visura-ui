@@ -6,12 +6,13 @@ import React from "@/icons/brands/React.astro";
 import Svelte from "@/icons/brands/Svelte.astro";
 import Vue from "@/icons/brands/Vue.astro";
 import Code from "@/icons/Code.astro";
-import Loader from "@/icons/Loader.astro";
 import Layers from "@/icons/Layers.astro";
-import Layout from "@/icons/Layout.astro";
 import Message from "@/icons/Message.astro";
 import Mouse from "@/icons/Mouse.astro";
 import Robot from "@/icons/Robot.astro";
+import SearchIcon from "@/icons/Search.astro";
+import TypographyIcon from "@/icons/Typography.astro";
+import CardIcon from "@/icons/Card.astro";
 import {
   Card,
   Book,
@@ -131,34 +132,12 @@ export const INFO = [
 export const COMPONENTS = [
   {
     id: 1,
-    icon: Layout,
-    title: "Header",
-    description: "Cabeceras modernas y adaptables",
-    variants: [
-      {
-        name: "Simple",
-        link: "/components/header",
-      },
-      {
-        name: "Con navegación",
-        link: "/components/header#nav",
-      },
-      {
-        name: "Sticky",
-        link: "/components/header#sticky",
-      },
-    ],
-    link: "/components/header",
-    iconColor: "text-light-blue",
-  },
-  {
-    id: 2,
     icon: Mouse,
     title: "Button",
     description: "Botones con estados y transiciones",
     variants: [
       {
-        name: "Simple",
+        name: "Default",
         link: "/components/button",
       },
       {
@@ -166,41 +145,31 @@ export const COMPONENTS = [
         link: "/components/button#outlined",
       },
       {
-        name: "Disabled",
-        link: "/components/button#disabled",
+        name: "Ghost",
+        link: "/components/button#ghost",
       },
       {
         name: "Link",
         link: "/components/button#link",
+      },
+      {
+        name: "Success",
+        link: "/components/button#success",
+      },
+      {
+        name: "Warning",
+        link: "/components/button#warning",
+      },
+      {
+        name: "Danger",
+        link: "/components/button#danger",
       },
     ],
     link: "/components/button",
     iconColor: "text-orange-400",
   },
   {
-    id: 3,
-    icon: Card,
-    title: "Card",
-    description: "Tarjetas versatiles para contenido",
-    variants: [
-      {
-        name: "Básica",
-        link: "/components/card",
-      },
-      {
-        name: "Con imagen",
-        link: "/components/card#image",
-      },
-      {
-        name: "Acción",
-        link: "/components/card#action",
-      },
-    ],
-    link: "/components/card",
-    iconColor: "text-green-500",
-  },
-  {
-    id: 4,
+    id: 2,
     icon: Badge,
     title: "Badge",
     description: "Indicadores de estado y categorías",
@@ -230,52 +199,71 @@ export const COMPONENTS = [
     iconColor: "text-yellow-300",
   },
   {
-    id: 5,
+    id: 3,
     icon: Message,
-    title: "Message",
-    description: "Diálogos y modales interactivos",
+    title: "Tooltip",
+    description: "Tooltip emergente con temas",
     variants: [
       {
-        name: "Simple",
-        link: "/components/modal",
+        name: "Light",
+        link: "/components/tooltip",
       },
       {
-        name: "Alert",
-        link: "/components/modal#alert",
-      },
-      {
-        name: "Confirm",
-        link: "/components/modal#confirm",
+        name: "Dark",
+        link: "/components/tooltip#dark",
       },
     ],
-    link: "/components/modal",
+    link: "/components/tooltip",
+    iconColor: "text-light-blue",
+  },
+  {
+    id: 4,
+    icon: TypographyIcon,
+    title: "Typography",
+    description: "Tipografía con variantes para cada caso",
+    variants: [],
+    link: "/components/typography",
+    iconColor: "text-green-500",
+  },
+  {
+    id: 5,
+    icon: SearchIcon,
+    title: "Input",
+    description: "Input para formularios con variantes",
+    variants: [
+      {
+        name: "Text",
+        link: "/components/input",
+      },
+      {
+        name: "Email",
+        link: "/components/input#email",
+      },
+      {
+        name: "Password",
+        link: "/components/input#password",
+      },
+    ],
+    link: "/components/input",
     iconColor: "text-pink-300",
   },
   {
     id: 6,
-    icon: Loader,
-    title: "Loading",
-    description: "Indicadores de carga animados",
+    icon: CardIcon,
+    title: "Card",
+    description: "Tarjeta con variantes",
     variants: [
       {
-        name: "spinner",
-        link: "/components/loading",
+        name: "Light",
+        link: "/components/card",
       },
       {
-        name: "dots",
-        link: "/components/loading#dots",
-      },
-      {
-        name: "Skeleton",
-        link: "/components/loading#skeleton",
-      },
-      {
-        name: "Progress",
-        link: "/components/loading#progress",
+        name: "Dark",
+        link: "/components/card#dark",
       },
     ],
-    link: "/components/loading",
-    iconColor: "text-sky-400",
+    link: "/components/card",
+    iconColor: "text-sky-200",
   },
 ];
 
